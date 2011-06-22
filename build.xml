@@ -1,0 +1,14 @@
+<project name="EC-KVM" default="package" basedir=".">
+    <description>
+        Build the EC-KVM plugin
+    </description>
+
+    <property name="buildconfigdir" value="../Plugin-In-A-Box/scripts" />
+    
+    <!-- plugin specific properties -->
+    <property name="pluginKey" value="EC-KVM" />
+    <property name="pluginVersion" value="1.0" />
+    <property name="gwtModules" value=""/>
+
+    <import file="${buildconfigdir}/buildTargets.xml"/>
+</project>
