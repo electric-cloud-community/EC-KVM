@@ -430,7 +430,7 @@ ntest "clone-vm", {}, sub {
     my $out = $gt->clone();
     
     my $expectedOutput = "";
-    $expectedOutput .= "virt-clone -d 5 --connect qemu:///system --original Test_VM --name Test_VM_Clone --auto-clone";
+    $expectedOutput .= "virt-clone -d --connect qemu:///system --original Test_VM --name Test_VM_Clone --auto-clone";
     $expectedOutput .= "\n";
     $expectedOutput .= "'Cloning virtual machine 'Test_VM' to 'Test_VM_Clone'...";
     $expectedOutput .= "\n";

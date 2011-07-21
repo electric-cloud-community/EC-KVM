@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<exportedData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="commander.xsd" version="47" buildLabel="build_3.9_39492_OPT_2011.03.09_18:43:56" buildVersion="3.9.0.39492" passkey="45d8a3570342af658e6ce4aeea401d78d60d55bd">
+<exportedData version="40" buildLabel="" buildVersion="3.6.0.0">
   <exportPath>/projects/@PLUGIN_KEY@-@PLUGIN_VERSION@</exportPath>
   <project>
     <projectName>@PLUGIN_KEY@-@PLUGIN_VERSION@</projectName>

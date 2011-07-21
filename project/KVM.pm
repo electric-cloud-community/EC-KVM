@@ -55,6 +55,11 @@ use constant {
     DEFAULT_ARCH => 'i386',
     DEFAULT_POOLDEVICETYPE => "disk",
     
+    WAIT_SLEEP_TIME => 15,
+
+    TASK_SUCCESS => 1,
+    TASK_ERROR   => 2,
+    
 };
 
 ################################
@@ -486,15 +491,19 @@ sub shutdown_vm {
     # Execute command
     $self->debugMsg(1, 'Shutting Down virtual machine \''.$self->opts->{kvm_vmname}.'\'...');
     my $result;
-    eval { $result = system($command); };
+    eval { $result = system($command); 
+    $self->checkStatus('shut off');
+    };
     
     # If an error occured
-    if ($result) {
+    if ($result || $self->opts->{exitcode}) {
         print  "Error trying to shutdown virtual machine \'".$self->opts->{kvm_vmname}."\'\n";
         $self->myCmdr->setProperty("outcome", "error" );
         $self->opts->{exitcode} = $result;
         return;
     }
+    
+    
     $self->debugMsg(1, "Virtual machine \'".$self->opts->{kvm_vmname}."\' shutdown successfully.");
 }
 
@@ -834,7 +843,7 @@ sub clone_vm {
     my ($self) = @_;
     
     # Create command
-    my $command = 'virt-clone -d 5 --connect qemu:///system --original '. $self->opts->{kvm_original_vmname}.' --name '. $self->opts->{kvm_vmname}.' --auto-clone';
+    my $command = 'virt-clone -d --connect qemu:///system --original '. $self->opts->{kvm_original_vmname}.' --name '. $self->opts->{kvm_vmname}.' --auto-clone';
 
     # Test mode
     if ($::gRunTest) {
@@ -1396,4 +1405,54 @@ sub pingResource {
 sub debugMsg {
     my ( $self, $errlev, $msg ) = @_;
     if ( $self->opts->{Debug} >= $errlev ) { print "$msg\n"; }
+}
+
+###############################
+# trim - deletes blank spaces before and after the entered value in 
+# the argument
+#
+# Arguments:
+#   untrimmedString: string that will be trimmed
+#
+# Returns:
+#   trimmed string
+#
+###############################
+sub checkStatus{
+    my ($self, $expectedState) = @_;
+    # Create command
+    
+    my $command = 'virsh --connect qemu:///system domstate '. $self->opts->{kvm_vmname};
+    
+    # Execute command
+    $self->debugMsg(1, 'Waiting for \''.$self->opts->{kvm_vmname}.'\' to '.$expectedState.'...');
+    my $result;
+    my $retry = 0;
+    while (1) {
+    
+    
+    
+        eval { $result = `$command`; };
+
+        # If an error occured
+        if ($@) {
+        print  "Error trying to get virtual machine \'".$self->opts->{kvm_vmname}."\' status\n";
+        $self->myCmdr->setProperty("outcome", "error" );
+        $self->opts->{exitcode} = ERROR;
+        return;
+        }     
+        $result =~ s/\n//g;
+        if ( $result eq $expectedState ) {
+            return TASK_SUCCESS;
+        }
+        elsif ( $retry gt 10 ) {
+            return TASK_ERROR;
+}
+
+        #-----------------------------
+        # Still running
+        #-----------------------------
+        sleep(WAIT_SLEEP_TIME);
+    }
+    
 }
