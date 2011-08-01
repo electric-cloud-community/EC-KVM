@@ -193,6 +193,15 @@
         </ul>
         
     <h2 class="help">Release Notes</h2>
+    
+    <h3 class="help">EC-KVM-1.0.1.0</h3>
+        <p class="help">
+        <ul>
+            <li>Fixed compatibility with ElectricCommander prior versions.</li>
+            <li>Fixed error with clone subprocedure.</li>
+            <li>Fixed error handling.</li>
+        </ul>
+        </p>
         
         <h3 class="help">EC-KVM-1.0.0.0</h3>
         <p class="help">
