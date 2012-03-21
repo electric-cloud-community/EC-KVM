@@ -7,7 +7,7 @@
     <help>help.xml</help>
     <author>Electric Cloud</author>
     <authorUrl>http://www.electric-cloud.com/support</authorUrl>
-    <category>Resource</category>
+    <category>Resource Management</category>
     <commander-version min="3.6"/>
     <components>
     </components>
