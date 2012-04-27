@@ -1,0 +1,508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="generator" content=
+        "HTML Tidy for Windows (vers 25 March 2009), see www.w3.org" />
+        <meta content="text/html; charset=us-ascii" http-equiv=
+        "content-type" />
+        <title>Electric Commander Plugin for KVM</title>
+        <link rel="stylesheet" href=
+        "../../plugins/@PLUGIN_KEY@/pluginhelp.css" type="text/css" media=
+        "screen" />
+    </head>
+    <body>
+        <div class="help">
+            <h1 class="pluginname">KVM</h1>
+            <p>Plugin Version @PLUGIN_VERSION@</p>
+            <hr style=
+            "margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;"
+            noshade="noshade" />
+           
+            <p>
+            KVM (for Kernel-based Virtual Machine) is a full virtualization solution for Linux on x86 hardware with virtualization extensions (Intel VT or AMD-V). KVM consists of a loadable kernel module, kvm.ko, which provides the core virtualization infrastructure and a processor-specific module, kvm-intel.ko or kvm-amd.ko. KVM also requires a modified QEMU.
+            </p>
+            <p>
+            This plugin uses the virtualization API libvirt, and command-line tools such as virt-install, virt-clone, virt-image, and virsh to accomplish  tasks, which means you must install these packages.
+            </p>
+           
+            <h2>KVM Links</h2>
+            <p>More information can be found at:
+                <ul>
+                    <li><a href="http://www.linux-kvm.org/">Kernel Based Virtual Machine home page</a></li>
+                    <li><a href="http://libvirt.org/">The virtualization API</a></li>
+                    <li><a href="http://virt-manager.et.redhat.com/">Virtual Machine Manager</a></li>
+                </ul>
+            </p>
+           
+            <h2>Electric Commander Integration to KVM</h2>
+            <p>@PLUGIN_KEY@ implements the most important virtualization actions. It performs actions on Virtual Machines like Clean Up resources, Clone, Create, Create Resources From the Virtual Machines, Destroy, List, Reboot, Resume, Revert to a specific Snapshot, Shutdown , Snapshot, Start,  Suspend and Undefine.
+            </p>
+            <p>Electric Commander itself provides some advantages like
+            parameters checking, easy functionality selection using only check
+            boxes, combo buttons, historical log reports, procedure duration
+            statistics, simple credentials attachment, real time analysis of
+            the log been generated, among others.</p>
+           
+            <h2>Integrated Version</h2>
+            <p>This plugin was developed and tested with KVM kernel 2.6.32.</p>
+            <p>
+            Packages:
+               <ul>
+                    <li>qemu-kvm 0.12.1.2-2.160</li>                        
+                    <li>qemu-kvm-tools 0.12.1.2-2</li>  
+                    <li>libvirt 0.8.7</li>      
+                    <li>virtinst 0.500.6</li>        
+                </ul>
+            </p>
+           
+            <h1>Plugin Procedures</h1>
+            <p>IMPORTANT: For all parameter descriptions below, required
+            parameters are shown in <span class='required'>bold
+            italics</span>.</p>
+
+        <div id="Cleanup"><a name='Cleanup' id="Cleanup"></a>
+       
+            <h3>Cleanup</h3>
+            <p>Deletes ElectricCommander resources and optionally undefines the virtual machines on the KVM server. </p>
+            <table class="grid">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>kvm_delete_vm</td>
+                        <td>Provide the members(IP with its port) to add it to the new
+                        pool, more than one member can be specified, different members must
+                        be separated by a space between them.</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_number_of_vms</td>
+                        <td>Indicate the number of virtual machines to clean up. The default is 1. If the value is greater than 1, a suffix is added to VM names. The suffix consists of an underscore and the VM number ('_#').</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_timeout</td>
+                        <td>Specify the step execution timeout length in minutes. Leave blank for no timeout.</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>kvm_vmname</td>
+                        <td>The name of the Load Balancing Pool that is going to be
+                        created. (Required)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="Clone"><a name='Clone' id="Clone"></a>
+            <h3>Clone</h3>
+            <p>Creates one or more clones of a virtual machine.</p>
+            <p>- Command to be executed: b pool &lt;pool_name&gt; delete</p>
+            <table class="grid">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>kvm_number_of_clones</td>
+                            <td>Indicate the number of clones to create. The default is 1. If the value is greater than 1, a suffix is added to cloned VM names. The suffix consists of an underscore and the clone number ('_#').</td>
+                        </tr>
+                        <tr>
+                            <td class='required'>kvm_original_vmname</td>
+                            <td>Provide the name of the virtual machine to clone. (Required)</td>
+                        </tr>
+                        <tr>
+                            <td>kvm_timeout</td>
+                            <td>Specify the step execution timeout length in minutes. Leave blank for no timeout.</td>
+                        </tr>
+                        <tr>
+                            <td class='required'>kvm_vmname</td>
+                            <td>Name the virtual machine that will be created. (Required)</td>
+                        </tr>                       
+                </tbody>
+            </table>
+        </div>
+        <div id="Create"><a name='Create' id=
+        "Create"></a>
+            <h3>Create</h3>
+            <p>Creates virtual machines on the KVM server.</p>
+            <table class="grid">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class='required'>kvm_cpu_arch</td>
+                        <td>Indicate the CPU architecture of the virtual machine to be created. The default is i386. (Required)</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_device_type</td>
+                        <td>Provide the type of the device to use if the storage method selected is 'pool'. The default is 'disk'.</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_disk_format</td>
+                        <td>Select the format of the storage. The default is 'qcow2'. If you use the 'diskfile' storage method, some formats will not work (use 'raw').</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_disk_path</td>
+                        <td>Provide the path of the virtual disk to use if the storage method selected is 'diskfile'.</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>kvm_disksize</td>
+                        <td>Indicate the capacity of the virtual disk (in GB). The default is 4. (Required)</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_guest_type</td>
+                        <td>Provide the guest operating system type. The default is 'none'.</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_install_method</td>
+                        <td>Select the operating system installation method.</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>kvm_install_source_path</td>
+                        <td>Path to a location containing an installable distribution. (Required)</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>kvm_memory</td>
+                        <td>Indicate the size of the virtual machine's memory (in MB). The default is 512. (Required)</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_network</td>
+                        <td>Provide the network name or bridge device name.</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_network_type</td>
+                        <td>Select the type of network to use. The default is 'bridge'.</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>kvm_num_cpus</td>
+                        <td>Indicate the number of virtual processors in a virtual machine. The default is 1. (Required)</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_number_of_vms</td>
+                        <td>Indicate the number of virtual machines to create. The default is 1. If the value is greater than 1, a suffix is added to VM names. The suffix consists of an underscore and the VM number ('_#').</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_pool_name</td>
+                        <td>Provide the name of the storage pool to use if the storage method selected is 'pool'. (Required)</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>kvm_storage_method</td>
+                        <td>Select a storage method to use. The default is 'pool'.(Required)</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_timeout</td>
+                        <td>Specify the step execution timeout length in minutes. Leave blank for no timeout.</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>kvm_vmname</td>
+                        <td>Provide the name the virtual machine to be created. (Required)</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_vnclisten_ip</td>
+                        <td>Provide the host operating system IP address, to listen to for the VNC connection. Blank means the host's address.</td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+        <div id="CreateResourceFromVM"><a name='CreateResourceFromVM' id=
+        "CreateResourceFromVM"></a>
+            <h3>CreateResourceFromVM</h3>
+            <p>Creates an ElectricCommander resource for a virtual machine.</p>
+            <p>- Command to be executed: b pool &lt;pool_name&gt; member
+            IP:Port delete member IP:Port delete</p>
+            <table class="grid">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>kvm_number_of_vms</td>
+                            <td>Indicate the number of virtual machines from which to get information. The default is 1. If the value is greater than 1, a suffix is added to VM names. The suffix consists of an underscore and the VM number ('_#').</td>
+                        </tr>
+                        <tr>
+                            <td>kvm_timeout</td>
+                            <td>Specify the step execution timeout length in minutes. Leave blank for no timeout.</td>
+                        </tr>
+                        <tr>
+                            <td class='required'>kvm_vmname</td>
+                            <td>Provide the name of the virtual machine from which to get information. (Required)</td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="Destroy"><a name='Destroy' id=
+        "Destroy"></a>
+            <h3>Destroy</h3>
+            <p>Immediately terminates the VM. It is the equivalent of ripping the power cord out on a physical machine.</p>
+            <p>- Command to be executed: b pool &lt;pool_name&gt; member
+            IP:Port session enable</p>
+            <table class="grid">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <tr>
+                            <td>kvm_number_of_vms</td>
+                            <td>Indicate the number of virtual machines from which to get information. The default is 1. If the value is greater than 1, a suffix is added to VM names. The suffix consists of an underscore and the VM number ('_#').</td>
+                        </tr>
+                        <tr>
+                            <td>kvm_timeout</td>
+                            <td>Specify the step execution timeout length in minutes. Leave blank for no timeout.</td>
+                        </tr>
+                        <tr>
+                            <td class='required'>kvm_vmname</td>
+                            <td>Provide the name of the virtual machine from which to get information. (Required)</td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+        <div id="List"><a name='List' id=
+        "List"></a>
+            <h3>List</h3>
+            <p>Displays the list of virtual machines with a specific state</p>
+            <p>- Command to be executed: b pool &lt;pool_name&gt; member
+            IP:Port session disable</p>
+            <table class="grid">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                            <td>kvm_state_list</td>
+                            <td>Select the state of the virtual machines to show.</td>
+                        </tr>
+                    <tr>
+                            <td>kvm_timeout</td>
+                            <td>Specify the step execution timeout length in minutes. Leave blank for no timeout.</td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="Suspend"><a name='Suspend' id="Suspend"></a>
+            <h3>Suspend</h3>
+            <p>Pauses a running virtual machine.</p>
+            <table class="grid">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>kvm_number_of_vms</td>
+                        <td>Indicate the number of virtual machines from which to get information. The default is 1. If the value is greater than 1, a suffix is added to VM names. The suffix consists of an underscore and the VM number ('_#').</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_timeout</td>
+                        <td>Specify the step execution timeout length in minutes. Leave blank for no timeout.</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>kvm_vmname</td>
+                        <td>Provide the name of the virtual machine from which to get information. (Required)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="Resume"><a name='Resume' id="Resume"></a>
+            <h3>Resume</h3>
+            <p>Moves a virtual machine out of the suspended state.</p>
+            <table class="grid">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>kvm_number_of_vms</td>
+                        <td>Indicate the number of virtual machines from which to get information. The default is 1. If the value is greater than 1, a suffix is added to VM names. The suffix consists of an underscore and the VM number ('_#').</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_timeout</td>
+                        <td>Specify the step execution timeout length in minutes. Leave blank for no timeout.</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>kvm_vmname</td>
+                        <td>Provide the name of the virtual machine from which to get information. (Required)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="Snapshot"><a name='Snapshot' id="Snapshot"></a>
+            <h3>Snapshot</h3>
+            <p>Creates a snapshot for the specified virtual machine.</p>
+            <table class="grid">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>kvm_snapshot_desc</td>
+                        <td>Provide the description of the snapshot to be created.</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>kvm_snapshot_name</td>
+                        <td>Provide the name of the snapshot to be created. (Required)</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_timeout</td>
+                        <td>Specify the step execution timeout length in minutes. Leave blank for no timeout.</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>kvm_vmname</td>
+                        <td>Provide the name of the virtual machine from which to get information. (Required)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="Revert"><a name='Revert' id="Revert"></a>
+            <h3>Revert</h3>
+            <p>Reverts a virtual machine to the specified snapshot.</p>
+            <table class="grid">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>kvm_snapshot_name</td>
+                        <td>Provide the name of snapshot to revert to.</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_timeout</td>
+                        <td>Specify the step execution timeout length in minutes. Leave blank for no timeout.</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>kvm_vmname</td>
+                        <td>Provide the name of the virtual machine from which to get information. (Required)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="Shutdown"><a name='Shutdown' id="Shutdown"></a>
+            <h3>Shutdown</h3>
+            <p>Gracefully shuts down the specified virtual machine.</p>
+            <table class="grid">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>kvm_number_of_vms</td>
+                        <td>Indicate the number of virtual machines from which to get information. The default is 1. If the value is greater than 1, a suffix is added to VM names. The suffix consists of an underscore and the VM number ('_#').</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_timeout</td>
+                        <td>Specify the step execution timeout length in minutes. Leave blank for no timeout.</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>kvm_vmname</td>
+                        <td>Provide the name of the virtual machine from which to get information. (Required)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="Start"><a name='Start' id="Start"></a>
+            <h3>Start</h3>
+            <p>Starts the specified virtual machine.</p>
+            <table class="grid">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>kvm_number_of_vms</td>
+                        <td>Indicate the number of virtual machines from which to get information. The default is 1. If the value is greater than 1, a suffix is added to VM names. The suffix consists of an underscore and the VM number ('_#').</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_timeout</td>
+                        <td>Specify the step execution timeout length in minutes. Leave blank for no timeout.</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>kvm_vmname</td>
+                        <td>Provide the name of the virtual machine from which to get information. (Required)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="Undefine"><a name='Undefine' id="Undefine"></a>
+            <h3>Undefine</h3>
+            <p>Deletes the specified virtual machine.</p>
+            <table class="grid">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>kvm_number_of_vms</td>
+                        <td>Indicate the number of virtual machines from which to get information. The default is 1. If the value is greater than 1, a suffix is added to VM names. The suffix consists of an underscore and the VM number ('_#').</td>
+                    </tr>
+                    <tr>
+                        <td>kvm_timeout</td>
+                        <td>Specify the step execution timeout length in minutes. Leave blank for no timeout.</td>
+                    </tr>
+                    <tr>
+                        <td class='required'>kvm_vmname</td>
+                        <td>Provide the name of the virtual machine from which to get information. (Required)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h1>Release Notes</h1>
+       
+        <h2>@PLUGIN_KEY@-@PLUGIN_VERSION@</h2>
+            <ul>
+                <li>4.1 help page format ready.</li>
+            </ul>
+           
+            <h2>EC-KVM-1.0.1.0</h2>
+            <ul>
+                <li>Fixed compatibility with ElectricCommander prior versions.</li>
+                <li>Fixed error with clone subprocedure.</li>
+                <li>Fixed error handling.</li>
+            </ul>
+           
+            <h2>EC-KVM-1.0.0.0</h2>
+            <ul>
+                <li>Created the following procedures: Cleanup, Clone, Create, CreateResourceFromVM, Destroy, List, Suspend, Resume, Snapshot, Revert, Shutdown, Start, and Undefine.</li>
+            </ul>
+           
+        </div>
+    </body>
+</html>
