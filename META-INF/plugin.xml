@@ -4,7 +4,7 @@
     <version>@PLUGIN_VERSION@</version>
     <label>@PLUGIN_KEY@</label>
     <description>KVM plugin</description>
-    <help>help.xml</help>
+    <help>EC-KVM_help.xml</help>
     <author>Electric Cloud</author>
     <authorUrl>http://www.electric-cloud.com/support</authorUrl>
     <category>Resource Management</category>
