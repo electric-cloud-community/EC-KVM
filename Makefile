@@ -4,8 +4,6 @@ SRCTOP=..
 
 include $(SRCTOP)/build/vars.mak
 
-PLUGIN_PATCH_LEVEL=1.0.2
-
 build: package
 unittest: 
 systemtest: systemtest-setup mysystemtest-run

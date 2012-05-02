@@ -488,17 +488,22 @@
        
         <h2>@PLUGIN_KEY@-@PLUGIN_VERSION@</h2>
             <ul>
+                <li>Plugin converted into the new maven format.</li>
+            </ul>
+			
+			<h2>EC-KVM-1.0.2</h2>
+            <ul>
                 <li>4.1 help page format ready.</li>
             </ul>
            
-            <h2>EC-KVM-1.0.1.0</h2>
+            <h2>EC-KVM-1.0.1</h2>
             <ul>
                 <li>Fixed compatibility with ElectricCommander prior versions.</li>
                 <li>Fixed error with clone subprocedure.</li>
                 <li>Fixed error handling.</li>
             </ul>
            
-            <h2>EC-KVM-1.0.0.0</h2>
+            <h2>EC-KVM-1.0.0</h2>
             <ul>
                 <li>Created the following procedures: Cleanup, Clone, Create, CreateResourceFromVM, Destroy, List, Suspend, Resume, Snapshot, Revert, Shutdown, Start, and Undefine.</li>
             </ul>
