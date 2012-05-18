@@ -1,0 +1,40 @@
+<editor>
+  <help>/commander/pages/@PLUGIN_NAME@/@PLUGIN_KEY@_help?s=Administration&amp;ss=Plugins#Cleanup</help>
+  
+    <formElement>
+        <type>entry</type>
+        <label>Virtual Machine Name:</label>
+        <property>kvm_vmname</property>
+		<required>1</required>
+        <value></value>
+        <documentation>Provide the name of the virtual machine to clean up.</documentation>
+    </formElement>
+	
+	<formElement>
+		<type>checkbox</type>
+		<label>Delete Virtual Machine:</label>
+		<property>kvm_delete_vm</property>
+		<checkedValue>1</checkedValue>
+		<uncheckedValue>0</uncheckedValue>
+		<required>0</required>
+		<documentation>If checked, the virtual machine will be undefined.</documentation>
+	</formElement>
+
+	<formElement>
+        <type>entry</type>
+        <label>Number of Virtual Machines:</label>
+        <property>kvm_number_of_vms</property>
+		<required>0</required>
+		<value>1</value>
+        <documentation>Indicate the number of virtual machines to clean up. The default is 1. If the value is greater than 1, a suffix is added to VM names. The suffix consists of an underscore and the VM number ('_#').</documentation>
+    </formElement>
+
+	<formElement>
+        <type>entry</type>
+        <label>Time Out:</label>
+        <property>kvm_timeout</property>
+		<required>0</required>
+        <documentation>Specify the step execution timeout length in minutes. Leave blank for no timeout.</documentation>
+    </formElement>
+    
+</editor>

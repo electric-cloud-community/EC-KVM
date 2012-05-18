@@ -1,0 +1,23 @@
+<editor>
+  <help>/commander/pages/@PLUGIN_NAME@/@PLUGIN_KEY@_help?s=Administration&amp;ss=Plugins#List</help>
+ 	
+	<formElement>
+            <type>select</type>
+            <label>States:</label>
+            <property>kvm_state_list</property>
+            <required>0</required>
+            <documentation>Provide the state of Virtual Machines to show. All shows all available virtual Machines this is the command '--all', inactive shows all the inactive machines this is the command '--inactive' and none to not specify any particular state.</documentation>
+            <option><name>all</name><value>--all</value></option>
+            <option><name>inactive</name><value>--inactive</value></option>
+			<option><name>none</name><value></value></option>
+    </formElement>
+	
+	<formElement>
+        <type>entry</type>
+        <label>Time Out:</label>
+        <property>kvm_timeout</property>
+		<required>0</required>
+        <documentation>Specify the step execution timeout length in minutes. Leave blank for no timeout.</documentation>
+    </formElement>
+    
+</editor>

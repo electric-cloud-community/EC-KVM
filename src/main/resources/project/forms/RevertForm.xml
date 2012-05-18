@@ -1,0 +1,30 @@
+<editor>
+  <help>/commander/pages/@PLUGIN_NAME@/@PLUGIN_KEY@_help?s=Administration&amp;ss=Plugins#Revert</help>
+  
+    <formElement>
+        <type>entry</type>
+        <label>Virtual Machine Name:</label>
+        <property>kvm_vmname</property>
+		<required>1</required>
+        <value></value>
+        <documentation>Provide the name of the virtual machine to revert.</documentation>
+    </formElement>
+	
+	<formElement>
+        <type>entry</type>
+        <label>Snapshot Name:</label>
+        <property>kvm_snapshot_name</property>
+		<required>1</required>
+        <value></value>
+        <documentation>Provide the name of snapshot to use.</documentation>
+    </formElement>
+
+	<formElement>
+        <type>entry</type>
+        <label>Time Out:</label>
+        <property>kvm_timeout</property>
+		<required>0</required>
+        <documentation>Specify the step execution timeout length in minutes. Leave blank for no timeout.</documentation>
+    </formElement>
+    
+</editor>

@@ -1,0 +1,179 @@
+<editor>
+  <help>/commander/pages/@PLUGIN_NAME@/@PLUGIN_KEY@_help?s=Administration&amp;ss=Plugins#Create</help>
+  
+    <formElement>
+        <type>entry</type>
+        <label>Virtual Machine Name:</label>
+        <property>kvm_vmname</property>
+		<required>1</required>
+        <value></value>
+        <documentation>Provide the name the virtual machine to be created.</documentation>
+    </formElement>
+	
+	<formElement>
+        <type>entry</type>
+        <label>Install Source Path:</label>
+        <property>kvm_install_source_path</property>
+		<required>1</required>
+        <value></value>
+        <documentation>Provide the path containing an installable distribution.</documentation>
+    </formElement>
+	
+	<formElement>
+        <type>entry</type>
+        <label>CPU Architecture:</label>
+        <property>kvm_cpu_arch</property>
+		<required>1</required>
+        <value></value>
+        <documentation>Indicate the CPU architecture of the virtual machine to be created. The default is i386.</documentation>
+    </formElement>
+	
+	<formElement>
+        <type>entry</type>
+        <label>Number of CPUs:</label>
+        <property>kvm_num_cpus</property>
+		<required>1</required>
+        <value>1</value>
+        <documentation>Indicate the number of virtual processors in a virtual machine. The default is 1.</documentation>
+    </formElement>
+	
+	<formElement>
+        <type>entry</type>
+        <label>Memory:</label>
+        <property>kvm_memory</property>
+		<required>1</required>
+        <value>512</value>
+        <documentation>Indicate the size of the virtual machine's memory (in MB). The default is 512.</documentation>
+    </formElement>
+  
+    <formElement>
+        <type>entry</type>
+        <label>Disk Size:</label>
+        <property>kvm_disksize</property>
+		<required>1</required>
+        <value>4</value>
+        <documentation>Indicate the capacity of the virtual disk (in GB). The default is 4.</documentation>
+    </formElement>
+    
+	<formElement>
+            <type>select</type>
+            <label>Storage Method:</label>
+            <property>kvm_storage_method</property>
+            <required>1</required>
+            <documentation>Select a storage method to use. The default is 'pool'.</documentation>
+            <option><name>Pool</name><value>0</value></option>
+            <option><name>Disk File</name><value>1</value></option>
+    </formElement>
+	
+    <formElement>
+        <type>entry</type>
+        <label>Device Type:</label>
+        <property>kvm_device_type</property>
+        <documentation>Provide the type of the device to use if the storage method selected is 'pool'. The default is 'disk'.</documentation>
+    </formElement>
+	
+	<formElement>
+            <type>select</type>
+            <label>Disk Format:</label>
+            <property>kvm_disk_format</property>
+            <required>0</required>
+			<value>qcow2</value>
+            <documentation>Select the format of the storage. The default is 'qcow2'. If you use the 'diskfile' storage method, some formats will not work (use 'raw').</documentation>
+            <option><name>raw</name><value>raw</value></option>
+            <option><name>bochs</name><value>bochs</value></option>
+			<option><name>cloop</name><value>cloop</value></option>
+            <option><name>cow</name><value>cow</value></option>
+			<option><name>dmg</name><value>dmg</value></option>
+            <option><name>iso</name><value>iso</value></option>
+			<option><name>qcow</name><value>qcow</value></option>
+            <option><name>qcow2</name><value>qcow2</value></option>
+			<option><name>vmdk</name><value>vmdk</value></option>
+            <option><name>vpc</name><value>vpc</value></option>
+    </formElement>
+	
+	<formElement>
+        <type>entry</type>
+        <label>Disk Path:</label>
+        <property>kvm_disk_path</property>
+		<required>0</required>
+        <documentation>Provide the path of the virtual disk to use if the storage method selected is 'diskfile'.</documentation>
+    </formElement>
+	
+	<formElement>
+            <type>select</type>
+            <label>Guest Type:</label>
+            <property>kvm_guest_type</property>
+            <required>0</required>
+			<value>none</value>
+            <documentation>Provide the guest operating system type. The default is 'none'.</documentation>
+            <option><name>linux</name><value>linux</value></option>
+            <option><name>solaris</name><value>solaris</value></option>
+			<option><name>unix</name><value>unix</value></option>
+            <option><name>windows</name><value>windows</value></option>
+			<option><name>other</name><value>other</value></option>
+            <option><name>none</name><value>none</value></option>
+    </formElement>
+	
+	<formElement>
+            <type>select</type>
+            <label>Installation Method:</label>
+            <property>kvm_install_method</property>
+            <required>0</required>
+            <documentation>Select the operating system installation method.</documentation>
+            <option><name>cdrom</name><value>0</value></option>
+            <option><name>location</name><value>1</value></option>
+    </formElement>
+    
+	<formElement>
+        <type>entry</type>
+        <label>Network:</label>
+        <property>kvm_network</property>
+		<required>0</required>
+        <documentation>Provide the network name or bridge device name.</documentation>
+    </formElement>
+	
+	<formElement>
+            <type>select</type>
+            <label>Network Type:</label>
+            <property>kvm_network_type</property>
+            <required>0</required>
+			<value>0</value>
+            <documentation>Select the type of network to use. The default is 'bridge'.</documentation>
+            <option><name>bridge</name><value>0</value></option>
+            <option><name>network</name><value>1</value></option>
+    </formElement>
+	
+	<formElement>
+        <type>entry</type>
+        <label>Number of Virtual Machines:</label>
+        <property>kvm_number_of_vms</property>
+		<required>0</required>
+		<value>1</value>
+        <documentation>Indicate the number of virtual machines to create. The default is 1. If the value is greater than 1, a suffix is added to VM names. The suffix consists of an underscore and the VM number ('_#').</documentation>
+    </formElement>
+	
+	<formElement>
+        <type>entry</type>
+        <label>Pool Name:</label>
+        <property>kvm_pool_name</property>
+		<required>0</required>
+        <documentation>Provide the name of the storage pool to use if the storage method selected is 'pool'.</documentation>
+    </formElement>
+	
+   <formElement>
+        <type>entry</type>
+        <label>VNC Listener IP:</label>
+        <property>kvm_vnclisten_ip</property>
+		<required>0</required>
+        <documentation>Provide the host operating system IP address, to listen to for the VNC connection. Blank means the host's address.</documentation>
+    </formElement>
+	
+	<formElement>
+        <type>entry</type>
+        <label>Time Out:</label>
+        <property>kvm_timeout</property>
+		<required>0</required>
+        <documentation>Specify the step execution timeout length in minutes. Leave blank for no timeout.</documentation>
+    </formElement>
+    
+</editor>

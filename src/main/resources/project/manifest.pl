@@ -3,6 +3,21 @@
  ['//property[propertyName="preamble"]/value' , 'preamble.pl'],
  ['//property[propertyName="KVM"]/value' , 'KVM.pm'],
  
+ ['//procedure[procedureName="Create"]/propertySheet/property[propertyName="ec_parameterForm"]/value', 'forms/CreateForm.xml'], 
+ ['//procedure[procedureName="CreateResourceFromVM"]/propertySheet/property[propertyName="ec_parameterForm"]/value', 'forms/CreateResourceFromVMForm.xml'],
+ ['//procedure[procedureName="Destroy"]/propertySheet/property[propertyName="ec_parameterForm"]/value', 'forms/DestroyForm.xml'],
+ ['//procedure[procedureName="Start"]/propertySheet/property[propertyName="ec_parameterForm"]/value', 'forms/StartForm.xml'],
+ ['//procedure[procedureName="ShutDown"]/propertySheet/property[propertyName="ec_parameterForm"]/value', 'forms/ShutDownForm.xml'],
+ ['//procedure[procedureName="Resume"]/propertySheet/property[propertyName="ec_parameterForm"]/value', 'forms/ResumeForm.xml'],
+ ['//procedure[procedureName="Suspend"]/propertySheet/property[propertyName="ec_parameterForm"]/value', 'forms/SuspendForm.xml'],
+ ['//procedure[procedureName="Clone"]/propertySheet/property[propertyName="ec_parameterForm"]/value', 'forms/CloneForm.xml'],
+ ['//procedure[procedureName="Snapshot"]/propertySheet/property[propertyName="ec_parameterForm"]/value', 'forms/SnapshotForm.xml'],
+ ['//procedure[procedureName="Revert"]/propertySheet/property[propertyName="ec_parameterForm"]/value', 'forms/RevertForm.xml'],
+ ['//procedure[procedureName="CleanUp"]/propertySheet/property[propertyName="ec_parameterForm"]/value', 'forms/CleanUpForm.xml'],
+ ['//procedure[procedureName="List"]/propertySheet/property[propertyName="ec_parameterForm"]/value', 'forms/ListForm.xml'],
+ ['//procedure[procedureName="Undefine"]/propertySheet/property[propertyName="ec_parameterForm"]/value', 'forms/UndefineForm.xml'],
+ 
+ 
  ['//procedure[procedureName="Create"]/step[stepName="Create"]/command' , 'vm/create.pl'],
  ['//procedure[procedureName="Create"]/step[stepName="SetTimelimit"]/command' , 'setTimelimit.pl'],
  ['//procedure[procedureName="Start"]/step[stepName="Start"]/command' , 'vm/start.pl'],
