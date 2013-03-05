@@ -7,11 +7,10 @@
   <parent>
     <groupId>com.electriccloud</groupId>
     <artifactId>commander-plugins-parent</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <relativePath>../build/parent/pom.xml</relativePath>
   </parent>
 
-  <groupId>com.electriccloud</groupId>
   <artifactId>EC-KVM</artifactId>
   <version>1.0.4-SNAPSHOT</version>
   <packaging>jar</packaging>
