@@ -12,7 +12,7 @@
   </parent>
 
   <artifactId>EC-KVM</artifactId>
-  <version>1.0.4-SNAPSHOT</version>
+  <version>1.0.5-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>Plugins : EC-KVM</name>

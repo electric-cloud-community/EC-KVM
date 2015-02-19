@@ -506,7 +506,10 @@
         </div>
 
         <h1>Release Notes</h1>
-       
+	<h2>@PLUGIN_KEY@-1.0.5</h2>
+           <ul>
+               <li>Fixed manifest file.</li>
+           </ul>       
         <h2>@PLUGIN_KEY@-1.0.4</h2>
             <ul>
                 <li>4.1 XML parameters panels ready.</li>
