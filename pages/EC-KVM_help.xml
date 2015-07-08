@@ -6,7 +6,7 @@
         "HTML Tidy for Windows (vers 25 March 2009), see www.w3.org" />
         <meta content="text/html; charset=us-ascii" http-equiv=
         "content-type" />
-        <title>Electric Commander Plugin for KVM</title>
+        <title>ElectricFlow Plugin for KVM</title>
         <link rel="stylesheet" href=
         "../../plugins/@PLUGIN_KEY@/pluginhelp.css" type="text/css" media=
         "screen" />
@@ -18,12 +18,14 @@
             <hr style=
             "margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;"
             noshade="noshade" />
+			
+			<p>Revised on July 1, 2015</p>
            
             <p>
             KVM (for Kernel-based Virtual Machine) is a full virtualization solution for Linux on x86 hardware with virtualization extensions (Intel VT or AMD-V). KVM consists of a loadable kernel module, kvm.ko, which provides the core virtualization infrastructure and a processor-specific module, kvm-intel.ko or kvm-amd.ko. KVM also requires a modified QEMU.
             </p>
             <p>
-            This plugin uses the virtualization API libvirt, and command-line tools such as virt-install, virt-clone, virt-image, and virsh to accomplish  tasks, which means you must install these packages.
+            This plugin uses the virtualization API libvirt, and command-line tools such as virt-install, virt-clone, virt-image, and virsh to accomplish tasks, which means you must install these packages.
             </p>
            
             <h2>KVM Links</h2>
@@ -31,14 +33,14 @@
                 <ul>
                     <li><a href="http://www.linux-kvm.org/">Kernel Based Virtual Machine home page</a></li>
                     <li><a href="http://libvirt.org/">The virtualization API</a></li>
-                    <li><a href="http://virt-manager.et.redhat.com/">Virtual Machine Manager</a></li>
+                    <li><a href="http://virt-manager.org/">Virtual Machine Manager</a></li>
                 </ul>
             </p>
            
-            <h2>Electric Commander Integration to KVM</h2>
+            <h2>ElectricFlow Integration to KVM</h2>
             <p>@PLUGIN_KEY@ implements the most important virtualization actions. It performs actions on Virtual Machines like Clean Up resources, Clone, Create, Create Resources From the Virtual Machines, Destroy, List, Reboot, Resume, Revert to a specific Snapshot, Shutdown , Snapshot, Start,  Suspend and Undefine.
             </p>
-            <p>Electric Commander itself provides some advantages like
+            <p>ElectricFlow itself provides some advantages like
             parameters checking, easy functionality selection using only check
             boxes, combo buttons, historical log reports, procedure duration
             statistics, simple credentials attachment, real time analysis of
@@ -57,6 +59,9 @@
             </p>
            
             <h1>Plugin Procedures</h1>
+			
+			<p>IMPORTANT: In the ElectricFlow UI, from the Home page, open the Main Menu, and click <b>Admin</b> > <b>Plugins</b> to open the Plugin Manager.</p>
+			
             <p>IMPORTANT: For all parameter descriptions below, required
             parameters are shown in <span class='required'>bold
             italics</span>.</p>
@@ -154,7 +159,7 @@
 		<div id="CreateResourceFromVM"><a name='CreateResourceFromVM' id=
         "CreateResourceFromVM"></a>
             <h3>CreateResourceFromVM</h3>
-            <p>Creates an ElectricCommander resource for a virtual machine.</p>
+            <p>Creates an ElectricFlow resource for a virtual machine.</p>
             <table class="grid">
                 <thead>
                     <tr>
@@ -421,7 +426,7 @@
 		<div id="Cleanup"><a name='Cleanup' id="Cleanup"></a>
        
             <h3>Cleanup</h3>
-            <p>Deletes ElectricCommander resources and optionally undefines the virtual machines on the KVM server. </p>
+            <p>Deletes ElectricFlow resources and optionally undefines the virtual machines on the KVM server. </p>
             <table class="grid">
                 <thead>
                     <tr>
@@ -506,6 +511,12 @@
         </div>
 
         <h1>Release Notes</h1>
+		
+		<h2>@PLUGIN_KEY@-1.0.6</h2>
+           <ul>
+               <li>Renamed ElectricCommander to ElectricFlow.</li>
+           </ul>   
+		   
 	<h2>@PLUGIN_KEY@-1.0.5</h2>
            <ul>
                <li>Fixed manifest file.</li>
@@ -528,7 +539,7 @@
            
             <h2>@PLUGIN_KEY@-1.0.1</h2>
             <ul>
-                <li>Fixed compatibility with ElectricCommander prior versions.</li>
+                <li>Fixed compatibility with ElectricFlow prior versions.</li>
                 <li>Fixed error with clone subprocedure.</li>
                 <li>Fixed error handling.</li>
             </ul>
