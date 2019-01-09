@@ -19,7 +19,7 @@
             "margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;"
             noshade="noshade" />
 			
-			<p>Revised on July 1, 2015</p>
+            <p>Revised on December 27, 2018</p>
            
             <p>
             KVM (for Kernel-based Virtual Machine) is a full virtualization solution for Linux on x86 hardware with virtualization extensions (Intel VT or AMD-V). KVM consists of a loadable kernel module, kvm.ko, which provides the core virtualization infrastructure and a processor-specific module, kvm-intel.ko or kvm-amd.ko. KVM also requires a modified QEMU.
@@ -511,7 +511,10 @@
         </div>
 
         <h1>Release Notes</h1>
-		
+        <h2>@PLUGIN_KEY@-1.0.7</h2>
+           <ul>
+               <li>The plugin icon has been updated.</li>
+           </ul>
 		<h2>@PLUGIN_KEY@-1.0.6</h2>
            <ul>
                <li>Renamed ElectricCommander to ElectricFlow.</li>
