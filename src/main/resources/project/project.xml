@@ -6,6 +6,12 @@
     <description>Integration with KVM</description>
     <workspaceName></workspaceName>
     <propertySheet>
+      <!-- Improvement for ECPRESOURCERHKVM-6 -->
+      <property>
+        <propertyName>ec_icon</propertyName>
+        <value>images/icon-plugin.svg</value>
+      </property>
+      <!-- End of improvement for ECPRESOURCERHKVM-6 -->
       <property>
         <propertyName>kvm_driver</propertyName>
         <description></description>
